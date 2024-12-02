@@ -557,10 +557,10 @@ P <- matrix(c(
 ), nrow = 4, byrow = TRUE)
 
 # Distribuição inicial
-init <- c(1, 0, 0, 0) 
+init <- c(1, 0, 0, 0)
 
 # Função para simular a trajetória
-markov <- function(init, mat, n) { 
+markov <- function(init, mat, n) {
   X <- numeric(n + 1)
   S <- 1:length(init)
   X[1] <- sample(x = S, size = 1, prob = init)
@@ -598,7 +598,7 @@ $T_j = \min \{ n \geq 1 \mid X_n = j \}$
 
 Vamos analisar o comportamento da primeira chegada ao estado 3
 ```{r,message=FALSE}
-n_rep <- 1000 
+n_rep <- 1000
 n_steps <- 100
 Ts <- numeric(n_rep)
 
@@ -632,7 +632,7 @@ $\mathbb{E}_i[T_i] = \frac{1}{\pi_i}$
 Portanto, esperamos que o tempo médio de retorno será de aproximadamente 4.
 
 ```{r,eval=params$run_chunk}
-return_times <- numeric(n_rep) 
+return_times <- numeric(n_rep)
 
 for (i in 1:n_rep) {
   trajetoria <- markov(init, P, n_steps)
@@ -640,7 +640,7 @@ for (i in 1:n_rep) {
   if (length(visits) > 1) {
     return_times[i] <- visits[2] - visits[1]
   } else {
-    return_times[i] <- NA 
+    return_times[i] <- NA
   }
 }
 
@@ -655,7 +655,7 @@ cat("Tempo médio de retorno ao estado 3:", tempo_medio_retorno, "\n")
 ```{r,eval=params$run_chunk}
 set.seed(150)
 
-n_steps <- 1000 
+n_steps <- 1000
 n_rep <- 1000
 k_values <- c(2, 5, 10)
 resultados <- list()
@@ -733,7 +733,7 @@ plot(cenario1,package="diagram")
 ```
 
 Podemos facilmente concluir que não faz sentido tratar de probabilidade de absorção nesse passeio aleatório.
-Exemplo: situação de um sistema de tráfego com os estados representando a intensidade do congestionamento (0 = livre, 3 = congestionado).
+Exemplo: situação de um sistema de tráfego com os estados representando a intensidade do congestionamento (1 = livre, 4 = congestionado).
 
 ### Cenário 2
 $$
@@ -759,7 +759,7 @@ plot(cenario2,package="diagram")
 
 Neste cenário, podemos notar que temos 2 estados absorventes (1 e 4) e os demais são estados transientes.
 Essa configuração nos nos permite afirmar não só que há estados transientes como a cadeia como se trata de uma cadeia absorvente, ou seja, a probabilidade do processo ser absorvido é 1.
-Imaginando na prática podemos pensar nessa matriz como uma representação de um apostador que para de jogar ao ficar sem dinheiro, estado 0, ou quando chega em determinado valor, estado = 4.
+Imaginando na prática podemos pensar nessa matriz como uma representação de um apostador que para de jogar ao ficar sem dinheiro, estado 1, ou quando chega em determinado valor, estado = 4.
 
 Com isso, faz sentido calcularmos as probabilidades de absorção dos estados absorventes condicionada ao estado inicial do processo;
 
@@ -772,7 +772,6 @@ m <- matrix(c(1.0, 0.0, 0.0, 0.0,
 mc <- new("markovchain", states = letters[1:4], transitionMatrix = m)
 absorptionProbabilities(mc)
 ```
-
 
 ## Curiosidades e Aplicações
 
