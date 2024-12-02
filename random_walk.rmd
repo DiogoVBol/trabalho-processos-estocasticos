@@ -117,9 +117,9 @@ P =
 \begin{bmatrix}
 1-p & p & 0 & \dots & 0 \\
 1-p & 0 & p & \dots & 0 \\
-0 & 1-p & 0 & \dots & p \\
+0 & 1-p & 0 & p \dots & 0 \\
 \vdots & \vdots & \ddots & \ddots & \vdots \\
-0 & \dots & 0 & 1-p & p \\
+0 & \dots & 1-p & 0 & p \\
 0 & \dots & 0 & 1-p & p
 \end{bmatrix}.
 $$
@@ -276,7 +276,6 @@ $$
 \pi = \left( \frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4} \right)
 $$
 
-vc
 *Ao longo prazo a partícula estará em qualquer estado com a mesma probabilidade*
 
 ### Distribuição Limite
