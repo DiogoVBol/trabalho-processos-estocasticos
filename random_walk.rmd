@@ -371,25 +371,6 @@ Por definição um estado $i$ é dito ser **recorrente** se $v_{ii}^*=1$ (a cade
 
 O estado $i$ é dito ser transiente se ele não é recorrente.
 
-Portanto, para a matriz de exemplo, considerando $p=\frac{1}{2}$:
-
-$$
-P =
-\begin{bmatrix}
-\frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 \\
-\frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 \\
-0 & \frac{1}{2} & 0 & \frac{1}{2} & 0 \\
-0 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\
-0 & 0 & 0 & \frac{1}{2} & \frac{1}{2}
-\end{bmatrix}.
-$$
-
-<div style="text-align: center;">
-![](img/01.png)
-</div>
-
-Análisando o grafo podemos notar que os estados {0,1,2,3,4} são uma classe fechada, irredutível.
-
 George Pólya, em 1921, provou o teorema denominado "Teorema de Pólya" ou "Teorema da Recorrência de Caminhadas Aleatórias":
 
 *"Um passeio aleatório simples em $\mathbb{Z}^D$ é recorrente se e somente se é simétrico e D < 3."*
